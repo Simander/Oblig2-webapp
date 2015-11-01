@@ -7,3 +7,13 @@ D:\Users\simander\Source\Repos\Oblig-Webapps\WebStoreDALBLL\Model\bin\Debug\Enti
 D:\Users\simander\Source\Repos\Oblig-Webapps\WebStoreDALBLL\Model\bin\Debug\EntityFramework.SqlServer.xml
 D:\Users\simander\Source\Repos\Oblig-Webapps\WebStoreDALBLL\Model\obj\Debug\Model.dll
 D:\Users\simander\Source\Repos\Oblig-Webapps\WebStoreDALBLL\Model\obj\Debug\Model.pdb
+C:\Users\anders\Source\Repos\Oblig2-webapp\WebStoreDALBLL\Model\bin\Debug\Model.dll.config
+C:\Users\anders\Source\Repos\Oblig2-webapp\WebStoreDALBLL\Model\bin\Debug\Model.dll
+C:\Users\anders\Source\Repos\Oblig2-webapp\WebStoreDALBLL\Model\bin\Debug\Model.pdb
+C:\Users\anders\Source\Repos\Oblig2-webapp\WebStoreDALBLL\Model\bin\Debug\EntityFramework.dll
+C:\Users\anders\Source\Repos\Oblig2-webapp\WebStoreDALBLL\Model\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\anders\Source\Repos\Oblig2-webapp\WebStoreDALBLL\Model\bin\Debug\EntityFramework.xml
+C:\Users\anders\Source\Repos\Oblig2-webapp\WebStoreDALBLL\Model\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\anders\Source\Repos\Oblig2-webapp\WebStoreDALBLL\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+C:\Users\anders\Source\Repos\Oblig2-webapp\WebStoreDALBLL\Model\obj\Debug\Model.dll
+C:\Users\anders\Source\Repos\Oblig2-webapp\WebStoreDALBLL\Model\obj\Debug\Model.pdb

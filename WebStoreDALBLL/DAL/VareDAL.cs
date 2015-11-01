@@ -1,6 +1,8 @@
 ﻿using DAL;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -68,6 +70,7 @@ namespace WebStoreDALBLL.DAL
             }
             catch(Exception feil)
             {
+                writeToFile(feil);
                 return null;
             }
 
@@ -86,6 +89,7 @@ namespace WebStoreDALBLL.DAL
             }
             catch(Exception feil)
             {
+                writeToFile(feil);
                 return null;
             }
         }
@@ -114,7 +118,7 @@ namespace WebStoreDALBLL.DAL
             }
             catch(Exception feil)
             {
-
+                writeToFile(feil);
                 return false;
             }
         }
@@ -142,6 +146,7 @@ namespace WebStoreDALBLL.DAL
             }
             catch (Exception feil)
             {
+                writeToFile(feil);
                 return false;
             }
         }
@@ -202,6 +207,7 @@ namespace WebStoreDALBLL.DAL
             }
             catch (Exception feil)
             {
+                writeToFile(feil);
                 return false;
             }
         }
@@ -218,8 +224,9 @@ namespace WebStoreDALBLL.DAL
                 db.SaveChanges();
                 return true;
             }
-            catch
+            catch(Exception feil)
             {
+                writeToFile(feil);
                 return false;
             }
         }
@@ -236,6 +243,7 @@ namespace WebStoreDALBLL.DAL
             }
             catch(Exception feil)
             {
+                writeToFile(feil);
                 return false;
             }
         }
@@ -266,6 +274,29 @@ namespace WebStoreDALBLL.DAL
             }
         }
 
+        private void writeToFile(Exception e)
+        {
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"WebStoreDALBLL_errorlog.txt";
+
+            try
+            {
+                using (StreamWriter writer = new StreamWriter(path, true))
+                {
+                    writer.WriteLine("////////////////// " + DateTime.Now.ToString() + " //////////////////");               
+                    writer.WriteLine("Message: " + e.Message + Environment.NewLine
+                        + "Stacktrace: " + e.StackTrace + Environment.NewLine);
+                }
+            }
+            catch (IOException ioe)
+            {
+                Debug.WriteLine(ioe.Message);
+            }
+            catch (UnauthorizedAccessException uae)
+            {
+                Debug.WriteLine(uae.Message);
+            }
+        }
 
     }
+
 }

@@ -56,6 +56,26 @@ namespace DAL
         public virtual List<Varer> Varer { get; set; }
     }
 
+    public class Bestillinger
+    {
+        [Key]
+        public int Id { get; set; }
+        public DateTime OrderDate { get; set; }
+        public virtual List<Ordrelinjer> Ordrelinjer { get; set; }
+        public int KundeId { get; set; }
+        public Kunder Kunder { get; set; }
+    }
+
+    public class Ordrelinjer
+    {
+        [Key]
+        public int id { get; set; }
+        public int ProduktId { get; set; }
+        public Varer Varer { get; set; }
+        public int Kvantitet { get; set; }
+        public int Bestillingsnr { get; set; }
+        public Bestillinger Bestilling { get; set; }
+    }
 
     public class DBContext : DbContext
     {

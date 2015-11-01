@@ -161,6 +161,7 @@
     <Content Include="Views\Home\VareDetail.cshtml" />
     <Content Include="Views\Kunde\LoggInn.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\AddToCart.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
