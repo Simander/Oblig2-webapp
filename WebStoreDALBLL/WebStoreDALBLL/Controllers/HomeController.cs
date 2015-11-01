@@ -16,7 +16,7 @@ namespace WebStoreDALBLL.Controllers
             if(Session["Handlevogn"] == null)
             {
                 Handlevogn hv = new Handlevogn();
-                hv.Varer = new List<HandlevognItem>();
+                hv.varer = new List<HandlevognItem>();
                 Session["Handlevogn"] = hv;
             }
             if (Session["LoggetInn"] == null)
@@ -54,6 +54,23 @@ namespace WebStoreDALBLL.Controllers
             return View(enVare);
         }
 
+        public ActionResult Handlevogn()
+        {
+            if (Session["Handlevogn"] == null)
+            {
+                Session["Handlevogn"] = new Handlevogn();
+                Handlevogn handlevogn = ((Handlevogn)Session["Handlevogn"]);
+                handlevogn.varer = new List<HandlevognItem>();
+            }
+            else
+            {
+                ((Handlevogn)Session["Handlevogn"]).calculateSumTotal();
+            }
+
+
+            return View(((Handlevogn)Session["Handlevogn"]));
+        }
+
         public ActionResult AddToCart(int vareID)
         {
             
@@ -67,6 +84,7 @@ namespace WebStoreDALBLL.Controllers
             Handlevogn handlevogn = ((Handlevogn)Session["Handlevogn"]);
             if (handlevogn.varer != null)
             {
+                handlevogn.calculateSumTotal();
                 var funnetVare = handlevogn.varer.FirstOrDefault(h => h.Vare.id == vareID);
                 if (funnetVare == null)
                 {

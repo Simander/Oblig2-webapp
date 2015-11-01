@@ -16,6 +16,7 @@ namespace WebStoreDALBLL.Models
 
         public void calculateSumTotal()
         {
+            prisTotal = 0;
            foreach(HandlevognItem v in varer){
                 prisTotal += (decimal.Parse(v.Vare.pris))*v.Antall;
             }

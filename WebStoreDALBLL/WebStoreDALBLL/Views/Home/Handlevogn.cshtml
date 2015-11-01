@@ -1,0 +1,52 @@
+﻿@model WebStoreDALBLL.Models.Handlevogn
+
+
+<h2>Din Handlekurv</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.varer[0].Vare.navn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.varer[0].Antall)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.varer[0].Vare.pris)
+        </th>
+        <th>
+        </th>
+    </tr>
+
+    @foreach (var item in Model.varer)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vare.navn)
+            </td>
+            <td>
+
+                @Html.DisplayFor(modelItem => item.Antall)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vare.pris)
+
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
+    <tr class="bg-info">
+        <td>
+            <strong>Sum total:</strong>
+        </td>
+        <td></td>
+        
+        <td><strong>@Html.DisplayFor(model => model.prisTotal)</strong></td>
+    </tr>
+
+   
+</table>

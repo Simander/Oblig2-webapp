@@ -21,6 +21,11 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav pull-right list-inline">
+                    <li>
+                        <a href="@Url.Action("Handlevogn", "Home")">
+                            <i class="glyphicon glyphicon-shopping-cart"> </i> Handlekurv
+                        </a>
+                    </li>
                     @if (Session["Bruker"] != null)
                     {
 
@@ -40,7 +45,9 @@
                         <li><a href="/Kunde/LoggInn">Logg inn / Registrer deg</a></li>
                     }
                 </ul>
+               
             </div>
+          
         </div>
     </div>
 
