@@ -4,24 +4,15 @@
     ViewBag.Title = "BrowseCategories";
 }
 
-<h2>BrowseCategories</h2>
+<h2>Kategorier</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.navn)
-        </th>
-        <th></th>
-    </tr>
-    <ul>
+
+<ul>
 @foreach (var item in Model)
 {
 
     <li>
-        @Html.ActionLink(item.navn, "Browse", "Home", new { kategori = item.navn }, null)
+        @Html.ActionLink(item.navn, "Browse", "Home", new { kategori = item.navn }, new { @class="h3"})
     </li>
 }
 </ul>

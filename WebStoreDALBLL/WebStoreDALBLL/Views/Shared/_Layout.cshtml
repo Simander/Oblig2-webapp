@@ -20,7 +20,25 @@
                 @Html.ActionLink("WebStoreDALBLL", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav pull-right list-inline">
+                    @if (Session["Bruker"] != null)
+                    {
+
+
+                        <li>
+                            <strong class="navbar-text">
+                                Du er logget inn som:
+                                <!--Henter referanse til Kunde klassen for å kunne hente ut navn og kundenr til innlogget bruker-->
+                                @{WebStoreDALBLL.Models.Kunde kunde = (WebStoreDALBLL.Models.Kunde)Session["Bruker"];}
+                                @kunde.fornavn @kunde.etternavn - @kunde.id
+                            </strong>
+                        </li>
+                        <li><a href="/Kunde/LoggUt">Logg ut</a></li>
+                    }
+                    else
+                    {
+                        <li><a href="/Kunde/LoggInn">Logg inn / Registrer deg</a></li>
+                    }
                 </ul>
             </div>
         </div>

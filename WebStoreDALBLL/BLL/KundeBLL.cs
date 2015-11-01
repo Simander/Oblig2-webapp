@@ -10,9 +10,14 @@ namespace WebStoreDALBLL.BLL
 {
     public class KundeBLL
     {
+        public static Byte[] hashPword(string s)
+        {
+            return KundeDAL.hashPword(s);
+        }
+
         public List<Kunde> getAll()
         {
-           var KundeDAL = new  KundeDAL();
+            var KundeDAL = new KundeDAL();
             List<Kunde> allCustomers = KundeDAL.getAll();
             return allCustomers;
         }
@@ -34,10 +39,16 @@ namespace WebStoreDALBLL.BLL
             return KundeDAL.deleteCustomer(slettId);
         }
 
-        public  Kunde getSingleCustomer(int id)
+        public Kunde getSingleCustomer(int id)
         {
             var KundeDAL = new KundeDAL();
             return KundeDAL.getSingleCustomer(id);
+        }
+
+        public Kunde getSingleCustomerByEmail(string email)
+        {
+            var KundeDAL = new KundeDAL();
+            return KundeDAL.getSingleCustomerByEmail(email);
         }
     }
 }

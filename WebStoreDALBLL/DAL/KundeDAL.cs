@@ -159,6 +159,32 @@ namespace WebStoreDALBLL.DAL
             }
         }
 
+        public Kunde getSingleCustomerByEmail(string email)
+        {
+            var db = new DBContext();
+            var enDbKunde = db.Kunder.FirstOrDefault();
+
+            if (enDbKunde == null)
+            {
+                return null;
+            }
+            else
+            {
+                var utKunde = new Kunde()
+                {
+                    id = enDbKunde.ID,
+                    fornavn = enDbKunde.Fornavn,
+                    etternavn = enDbKunde.Etternavn,
+                    telefonnr = enDbKunde.Telefonnr,
+                    adresse = enDbKunde.Adresse,
+                    postnr = enDbKunde.Postnr,
+                    poststed = enDbKunde.Poststeder.Poststed,
+                    epost = enDbKunde.Epost,
+                    hashPassord = enDbKunde.Password
+                };
+                return utKunde;
+            }
+        }
 
     }
 }

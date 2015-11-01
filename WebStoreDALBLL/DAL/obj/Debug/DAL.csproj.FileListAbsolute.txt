@@ -10,3 +10,15 @@ D:\Users\simander\Source\Repos\Oblig-Webapps\WebStoreDALBLL\DAL\bin\Debug\Entity
 D:\Users\simander\Source\Repos\Oblig-Webapps\WebStoreDALBLL\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 D:\Users\simander\Source\Repos\Oblig-Webapps\WebStoreDALBLL\DAL\obj\Debug\DAL.dll
 D:\Users\simander\Source\Repos\Oblig-Webapps\WebStoreDALBLL\DAL\obj\Debug\DAL.pdb
+D:\Users\simander\Source\Repos\Oblig2-webapp\WebStoreDALBLL\DAL\bin\Debug\DAL.dll.config
+D:\Users\simander\Source\Repos\Oblig2-webapp\WebStoreDALBLL\DAL\bin\Debug\DAL.dll
+D:\Users\simander\Source\Repos\Oblig2-webapp\WebStoreDALBLL\DAL\bin\Debug\DAL.pdb
+D:\Users\simander\Source\Repos\Oblig2-webapp\WebStoreDALBLL\DAL\bin\Debug\EntityFramework.dll
+D:\Users\simander\Source\Repos\Oblig2-webapp\WebStoreDALBLL\DAL\bin\Debug\EntityFramework.SqlServer.dll
+D:\Users\simander\Source\Repos\Oblig2-webapp\WebStoreDALBLL\DAL\bin\Debug\Model.dll
+D:\Users\simander\Source\Repos\Oblig2-webapp\WebStoreDALBLL\DAL\bin\Debug\Model.pdb
+D:\Users\simander\Source\Repos\Oblig2-webapp\WebStoreDALBLL\DAL\bin\Debug\EntityFramework.xml
+D:\Users\simander\Source\Repos\Oblig2-webapp\WebStoreDALBLL\DAL\bin\Debug\EntityFramework.SqlServer.xml
+D:\Users\simander\Source\Repos\Oblig2-webapp\WebStoreDALBLL\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+D:\Users\simander\Source\Repos\Oblig2-webapp\WebStoreDALBLL\DAL\obj\Debug\DAL.dll
+D:\Users\simander\Source\Repos\Oblig2-webapp\WebStoreDALBLL\DAL\obj\Debug\DAL.pdb

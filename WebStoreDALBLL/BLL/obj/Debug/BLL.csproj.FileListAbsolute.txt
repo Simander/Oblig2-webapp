@@ -9,3 +9,14 @@ D:\Users\simander\Source\Repos\Oblig-Webapps\WebStoreDALBLL\BLL\bin\Debug\Entity
 D:\Users\simander\Source\Repos\Oblig-Webapps\WebStoreDALBLL\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
 D:\Users\simander\Source\Repos\Oblig-Webapps\WebStoreDALBLL\BLL\obj\Debug\BLL.dll
 D:\Users\simander\Source\Repos\Oblig-Webapps\WebStoreDALBLL\BLL\obj\Debug\BLL.pdb
+D:\Users\simander\Source\Repos\Oblig2-webapp\WebStoreDALBLL\BLL\bin\Debug\BLL.dll
+D:\Users\simander\Source\Repos\Oblig2-webapp\WebStoreDALBLL\BLL\bin\Debug\BLL.pdb
+D:\Users\simander\Source\Repos\Oblig2-webapp\WebStoreDALBLL\BLL\bin\Debug\DAL.dll
+D:\Users\simander\Source\Repos\Oblig2-webapp\WebStoreDALBLL\BLL\bin\Debug\Model.dll
+D:\Users\simander\Source\Repos\Oblig2-webapp\WebStoreDALBLL\BLL\bin\Debug\EntityFramework.dll
+D:\Users\simander\Source\Repos\Oblig2-webapp\WebStoreDALBLL\BLL\bin\Debug\DAL.pdb
+D:\Users\simander\Source\Repos\Oblig2-webapp\WebStoreDALBLL\BLL\bin\Debug\Model.pdb
+D:\Users\simander\Source\Repos\Oblig2-webapp\WebStoreDALBLL\BLL\bin\Debug\EntityFramework.xml
+D:\Users\simander\Source\Repos\Oblig2-webapp\WebStoreDALBLL\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+D:\Users\simander\Source\Repos\Oblig2-webapp\WebStoreDALBLL\BLL\obj\Debug\BLL.dll
+D:\Users\simander\Source\Repos\Oblig2-webapp\WebStoreDALBLL\BLL\obj\Debug\BLL.pdb

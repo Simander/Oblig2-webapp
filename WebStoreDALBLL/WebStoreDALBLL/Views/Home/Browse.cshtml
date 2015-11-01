@@ -1,9 +1,6 @@
 ﻿@model List<WebStoreDALBLL.Models.Vare>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-
+<h2>@Model[0].kategori</h2>
 <ul>
 @foreach (var item in Model) {
 
