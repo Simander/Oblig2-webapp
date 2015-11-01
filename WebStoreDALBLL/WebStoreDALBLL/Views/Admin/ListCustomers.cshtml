@@ -1,0 +1,71 @@
+﻿@model List<WebStoreDALBLL.Models.Kunde>
+
+@{
+    ViewBag.Title = "Kunder";
+}
+
+<h2>Kunder</h2>
+<p>
+    @Html.ActionLink("Tilbake til menyen", "Index", "Admin", new { @class = "btn btn-default" })
+</p>       
+<p>
+    @Html.ActionLink("Create New", "RegisterNew", "Kunde", new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model[0].fornavn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model[0].etternavn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model[0].telefonnr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model[0].adresse)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model[0].postnr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model[0].poststed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model[0].epost)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.fornavn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.etternavn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.telefonnr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.adresse)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.postnr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.poststed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.epost)
+        </td>
+        <td>
+            @Html.ActionLink("Endre", "EditCustomer", new { id=item.id }, new { @class = "btn btn-warning" }) |
+            @Html.ActionLink("Detaljer", "DetailsCustomer", new { id=item.id }, new { @class = "btn btn-success" }) |
+            @Html.ActionLink("Slett", "DeleteCustomer", new { id=item.id }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

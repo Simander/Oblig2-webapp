@@ -1,0 +1,28 @@
+﻿@model IEnumerable<WebStoreDALBLL.Models.Kategori>
+
+@{
+    ViewBag.Title = "BrowseCategories";
+}
+
+<h2>BrowseCategories</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.navn)
+        </th>
+        <th></th>
+    </tr>
+    <ul>
+@foreach (var item in Model)
+{
+
+    <li>
+        @Html.ActionLink(item.navn, "Browse", "Home", new { kategori = item.navn }, null)
+    </li>
+}
+</ul>
+

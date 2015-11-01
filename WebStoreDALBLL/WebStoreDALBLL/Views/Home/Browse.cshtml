@@ -1,0 +1,18 @@
+﻿@model List<WebStoreDALBLL.Models.Vare>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<ul>
+@foreach (var item in Model) {
+
+        <li>    @Html.ActionLink(((item.navn) + " , " + (item.pris) +"kr"),
+               "VareDetail", "Home", new { vareID = item.id }, null)
+         
+        </li>       
+       
+
+}
+
+</ul>

@@ -1,0 +1,60 @@
+﻿@model WebStoreDALBLL.Models.Vare
+
+<div>
+    <h4>Vare</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.navn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.navn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pris)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pris)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.kvantitet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kvantitet)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.beskrivelse)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.beskrivelse)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.produsent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.produsent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.kategori)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kategori)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

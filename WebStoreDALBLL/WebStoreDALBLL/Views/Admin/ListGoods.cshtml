@@ -1,0 +1,60 @@
+﻿@model List<WebStoreDALBLL.Models.Vare>
+
+@{
+    ViewBag.Title = "ListGoods";
+}
+
+<h2>Varer</h2>
+<p>
+    @Html.ActionLink("Tilbake til menyen", "Index", "Admin", new { @class = "btn btn-default" })
+</p>  
+<p>
+    @Html.ActionLink("Legg til ny vare", "AddNewGoods","Admin", new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model[0].kategori)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model[0].navn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model[0].pris)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model[0].kvantitet)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model[0].produsent)
+        </th>     
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.kategori)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.navn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pris)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.kvantitet)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.produsent)
+        </td>
+        
+        <td>
+            @Html.ActionLink("Endre", "EditGoods", new { id=item.id }, new {@class="btn btn-warning"}) |
+            @Html.ActionLink("Detaljer", "DetailsGoods", new { id=item.id },new { @class = "btn btn-success" }) |
+            @Html.ActionLink("Slett", "DeleteGoods", new { id=item.id }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,72 @@
+﻿@model WebStoreDALBLL.Models.Vare
+
+@{
+    ViewBag.Title = "DeleteGoods";
+}
+
+<h2>Slett vare</h2>
+
+<h3>Er du sikker på at du vil slette denne?</h3>
+<div>
+    <h4>Vare</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.navn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.navn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pris)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pris)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.kvantitet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kvantitet)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.beskrivelse)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.beskrivelse)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.produsent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.produsent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.kategori)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kategori)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Slett vare" class="btn btn-danger" /> |
+            @Html.ActionLink("Tilbake til varer", "ListGoods", new { tom = "" }, new { @class = "btn btn-primary" })
+        </div>
+    }
+</div>
