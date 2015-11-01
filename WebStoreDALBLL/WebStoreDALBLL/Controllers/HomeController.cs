@@ -106,8 +106,45 @@ namespace WebStoreDALBLL.Controllers
                 hv1.Antall = 1;
                 handlevogn.varer.Add(hv1);
             }
-            return View(((Handlevogn)Session["Handlevogn"]).varer);
+           // return View(((Handlevogn)Session["Handlevogn"]).varer);
+            return RedirectToAction("Handlevogn", "Home");
+        }
+
+        public ActionResult FjernHandlevognLinje(int vareID)
+        {
+            if (Session["Handlevogn"] == null)
+            {
+                Session["Handlevogn"] = new Handlevogn();
+            }
+          
+
+            Handlevogn handlevogn = ((Handlevogn)Session["Handlevogn"]);
+            var slettVare = handlevogn.varer.FirstOrDefault(h => h.Vare.id == vareID);
+            if (slettVare != null)
+            {
+                handlevogn.varer.Remove(slettVare);
+            }
+            return RedirectToAction("Handlevogn", "Home");
             
+        }
+        public string EndreAntallAvVare(int vareID, int antall)
+        {
+            return vareID + "|" + antall;
+            /*
+            if (Session["Handlevogn"] == null)
+            {
+                Session["Handlevogn"] = new Handlevogn();
+            }
+
+
+            Handlevogn handlevogn = ((Handlevogn)Session["Handlevogn"]);
+            var endreVare = handlevogn.varer.FirstOrDefault(h => h.Vare.id == vareID);
+            if (endreVare != null)
+            {
+                endreVare.Antall = antall;
+            }
+            return RedirectToAction("Handlevogn", "Home");*/
+
         }
     }
 }
