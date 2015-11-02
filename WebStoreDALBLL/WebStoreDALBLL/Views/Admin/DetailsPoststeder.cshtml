@@ -1,0 +1,28 @@
+﻿@model WebStoreDALBLL.Models.Poststed
+
+<div>
+    <h4>Poststed</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.postnr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.postnr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.poststed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.poststed)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

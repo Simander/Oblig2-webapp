@@ -28,6 +28,19 @@ namespace DAL
         public virtual List<Kunder> Kunder { get; set; }
     }
 
+    public class AdminBrukere
+    {
+        [Key]
+        public int ID { get; set; }
+
+        public string Fornavn { get; set; }
+        public string Etternavn { get; set; }
+        public string Telefonnr { get; set; }
+        public string Epost { get; set; }
+        public Byte[] Password { get; set; }
+        public bool Superadmin { get; set; }
+    }
+
     public class Varer
     {
         [Key]
@@ -90,6 +103,8 @@ namespace DAL
         public DbSet<Varer> Varer { get; set; }
         public DbSet<Produsenter> Produsenter { get; set; }
         public DbSet<Kategorier> Kategorier { get; set; }
+
+        public DbSet<AdminBrukere> AdminBrukere { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

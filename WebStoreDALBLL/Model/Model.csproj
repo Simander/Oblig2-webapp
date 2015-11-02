@@ -49,10 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminBruker.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Handlevogn.cs" />
     <Compile Include="Kategori.cs" />
     <Compile Include="Kunde.cs" />
+    <Compile Include="Poststed.cs" />
     <Compile Include="Produsent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Vare.cs" />

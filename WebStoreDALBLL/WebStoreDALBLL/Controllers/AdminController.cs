@@ -13,7 +13,57 @@ namespace WebStoreDALBLL.Controllers
         // GET: Admin
         public ActionResult Index()
         {
+            if (Session["Admin"] == null)
+            {
+                Session["Admin"] = false;
+                ViewBag.Admin = false;
+                return RedirectToAction("LoggInn");
+            }
+            else
+            {
+                ViewBag.Admin = (bool)Session["Admin"];
+            }
+            return View();     
+        }
+
+        public ActionResult LoggInn()
+        {
             return View();
+        }
+        [HttpPost]
+        public ActionResult LoggInn(FormCollection innListe)
+        {
+            var brukernavn = innListe["Epost"];
+            var passord = KundeBLL.hashPword(innListe["Passord"]);
+            try
+            {
+                var db = new AdminBLL();
+                var funnetBruker = db.getSingleAdminByEmail(brukernavn);
+
+
+                if (funnetBruker == null)
+                {
+                    return View();
+                }
+                else
+                {
+                    if (funnetBruker.hashPassword.SequenceEqual(passord))
+                    {
+                        Session["Admin"] = true;
+                      
+                        return RedirectToAction("Index");
+                        // return "Kundenr: " + ((Kunde)Session["Bruker"]).KundeNR + " | Brukernavn: " + ((Kunde)Session["Bruker"]).Epost + " er logget inn!";
+                    }
+                    //return "funnetBruker.Passord: " + funnetBruker.Passord + " | innskrevet hash: " + passord;
+                }
+
+                return View();
+            }
+            catch (Exception feil)
+            {
+
+                return View(feil);
+            }
         }
 
         //KUNDER
@@ -163,6 +213,42 @@ namespace WebStoreDALBLL.Controllers
             var vareDb = new VareBLL();
             List<Vare> alleVarer = vareDb.getAllByCategory(kat);
             return View(alleVarer);
+        }
+
+
+        public ActionResult ListPoststeder()
+        {
+            var PoststedDb = new PoststedBLL();
+            List<Poststed> allePoststeder = PoststedDb.getAll();
+            return View(allePoststeder);
+        }
+
+       
+
+        public ActionResult DeletePoststed(string id)
+        {
+            var PoststedDb = new PoststedBLL();
+            Poststed ettPoststed = PoststedDb.getSinglePoststed(id);
+            return View(ettPoststed);
+        }
+
+        [HttpPost]
+        public ActionResult DeletePoststed(string id, Poststed slettPoststed)
+        {
+            var PoststedDb = new PoststedBLL();
+            bool slettOK = PoststedDb.deletePoststed(id);
+            if (slettOK)
+            {
+                return RedirectToAction("ListPoststeder");
+            }
+            return View();
+        }
+
+        public ActionResult DetailsPoststeder(string id)
+        {
+            var PoststedDb = new PoststedBLL();
+            Poststed ettPoststed = PoststedDb.getSinglePoststed(id);
+            return View(ettPoststed);
         }
 
     }

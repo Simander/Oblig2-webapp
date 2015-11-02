@@ -20,7 +20,7 @@ namespace WebStoreDALBLL.Models {
 
         [Display(Name = "Telefonnr")]
         [Required(ErrorMessage = "Telefonnr må oppgis")]
-        [RegularExpression("^[0-9]{8,12}$")]
+        [RegularExpression("^[0-9]{8,12}$", ErrorMessage = "Ugyldig telefonnummer")]
         public string telefonnr { get; set; }
 
         [Display(Name = "Adresse")]

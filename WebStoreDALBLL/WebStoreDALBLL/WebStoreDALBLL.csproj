@@ -164,6 +164,10 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\AddToCart.cshtml" />
     <Content Include="Views\Home\Handlevogn.cshtml" />
+    <Content Include="Views\Admin\ListPoststeder.cshtml" />
+    <Content Include="Views\Admin\DetailsPoststeder.cshtml" />
+    <Content Include="Views\Admin\DeletePoststed.cshtml" />
+    <Content Include="Views\Admin\LoggInn.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
