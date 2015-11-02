@@ -60,7 +60,10 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <div>
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+                <a href="@Url.Action("Index", "Admin")">adminpage</a>
+            </div>
         </footer>
     </div>
 

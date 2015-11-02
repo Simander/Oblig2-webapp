@@ -1,0 +1,66 @@
+﻿@model WebStoreDALBLL.Models.AdminBruker
+
+<h3>Er du sikker på at du vil slette denne?</h3>
+<div>
+    <h4>Administratorbruker</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.fornavn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fornavn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.etternavn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.etternavn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telefonnr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telefonnr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.epost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.epost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.passord)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.passord)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.superadmin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.superadmin)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

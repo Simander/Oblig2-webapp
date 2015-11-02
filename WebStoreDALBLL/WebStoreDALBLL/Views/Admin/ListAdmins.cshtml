@@ -1,0 +1,53 @@
+﻿@model List<WebStoreDALBLL.Models.AdminBruker>
+
+
+<h2>Administratorer</h2>
+<p>
+    @Html.ActionLink("Legg til ny administrator", "RegisterNewAdmin")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model[0].fornavn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model[0].etternavn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model[0].telefonnr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model[0].epost)
+        </th>   
+        <th>
+            @Html.DisplayNameFor(model => model[0].superadmin)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.fornavn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.etternavn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.telefonnr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.epost)
+        </td>  
+        <td>
+            @Html.DisplayFor(modelItem => item.superadmin)
+        </td>
+        <td>
+            @Html.ActionLink("Endre", "EditAdmin", new { id=item.id }) |
+            @Html.ActionLink("Detaljer", "DetailsAdmin", new { id=item.id }) |
+            @Html.ActionLink("Slett", "DeleteAdmin", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>
