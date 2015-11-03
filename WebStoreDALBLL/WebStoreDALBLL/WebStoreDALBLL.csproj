@@ -131,6 +131,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\BestillingController.cs" />
     <Compile Include="Controllers\ButikkController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KundeController.cs" />
@@ -173,6 +174,12 @@
     <Content Include="Views\Admin\DetailsAdmin.cshtml" />
     <Content Include="Views\Admin\EditAdmin.cshtml" />
     <Content Include="Views\Admin\DeleteAdmin.cshtml" />
+    <Content Include="Views\Bestilling\ListAllOrders.cshtml" />
+    <Content Include="Views\Bestilling\_DetailsOrder.cshtml" />
+    <Content Include="Views\Bestilling\_DetailsOrderLines.cshtml" />
+    <Content Include="Views\Bestilling\DetailsOrdreSum.cshtml" />
+    <Content Include="Views\Bestilling\RegisterOrder.cshtml" />
+    <Content Include="Views\Bestilling\OrderConfirmation.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

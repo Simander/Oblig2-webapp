@@ -1,0 +1,99 @@
+﻿@model WebStoreDALBLL.Models.Handlevogn
+
+@{
+    ViewBag.Title = "RegisterOrder";
+}
+
+<h2>RegisterOrder</h2>
+
+<div>
+    <h4>Handlevogn</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.kunde.fornavn)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.kunde.etternavn)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.kunde.telefonnr)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.kunde.telefonnr)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.kunde.adresse)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.kunde.adresse)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.kunde.postnr)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.kunde.postnr)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.kunde.poststed)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.kunde.poststed)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.kunde.epost)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.kunde.epost)
+        </dd>
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.prisTotal)
+        </dt>
+        <dt>
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.prisTotal)
+        </dd>
+
+    </dl>
+    <table class="table">
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.id)
+            </td>
+            <td>
+                @Html.DisplayName("Navn")
+            </td>
+            <td>
+                @Html.DisplayName("Antall")
+            </td>
+            <td>
+                @Html.DisplayName("Pris")
+            </td>
+
+        </tr>
+        @foreach (var item in Model.varer){
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => item.id)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.Vare.navn)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.Antall)
+                </td>          
+                <td>
+                    @Html.DisplayFor(model => item.Vare.pris)
+                </td>
+  
+            </tr>
+
+        }
+    </table>
+</div>
+<p>
+    @Html.ActionLink("Kjøp", "OrderConfirmation", "", new { @class="btn btn-primary"}) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

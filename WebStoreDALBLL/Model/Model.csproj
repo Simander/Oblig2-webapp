@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminBruker.cs" />
+    <Compile Include="Bestilling.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Handlevogn.cs" />
     <Compile Include="Kategori.cs" />

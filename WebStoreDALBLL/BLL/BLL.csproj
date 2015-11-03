@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminBLL.cs" />
+    <Compile Include="BestillingsBLL.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="KundeBLL.cs" />
     <Compile Include="PoststedBLL.cs" />

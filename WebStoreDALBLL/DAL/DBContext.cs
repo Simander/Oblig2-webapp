@@ -72,24 +72,25 @@ namespace DAL
     public class Bestillinger
     {
         [Key]
-        public int Id { get; set; }
+        public int ID { get; set; }
         public DateTime OrderDate { get; set; }
+        public decimal PrisTotal { get; set; }
         public virtual List<Ordrelinjer> Ordrelinjer { get; set; }
-        public int KundeId { get; set; }
+        public int KundeId { get; set; }        //referanse til kundens id
         public Kunder Kunder { get; set; }
     }
 
     public class Ordrelinjer
     {
         [Key]
-        public int id { get; set; }
-        public int ProduktId { get; set; }
-        public Varer Varer { get; set; }
+        public int ID { get; set; }
+        public int ProduktId { get; set; }  //referanse til varens id
+        public Varer Vare { get; set; }
         public int Kvantitet { get; set; }
-        public int Bestillingsnr { get; set; }
+        public int Bestillingsnr { get; set; }  //referans til bestillingens Id
         public Bestillinger Bestilling { get; set; }
     }
-
+    
     public class DBContext : DbContext
     {
         public DBContext()
@@ -105,6 +106,9 @@ namespace DAL
         public DbSet<Kategorier> Kategorier { get; set; }
 
         public DbSet<AdminBrukere> AdminBrukere { get; set; }
+
+        public DbSet<Bestillinger> Bestillinger { get; set; }
+        public DbSet<Ordrelinjer> Ordrelinjer { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

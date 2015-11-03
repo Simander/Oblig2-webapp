@@ -58,6 +58,8 @@ namespace WebStoreDALBLL.Controllers
         {
             Session["LoggetInn"] = false;
             Session["Bruker"] = null;
+            Handlevogn hv = (Handlevogn)Session["Handlevogn"];
+            hv.kunde = null;
             return RedirectToAction("Index", "Home");
         }
 
@@ -88,6 +90,8 @@ namespace WebStoreDALBLL.Controllers
                         {
                             Session["LoggetInn"] = true;
                             Session["Bruker"] = funnetBruker;
+                        Handlevogn handlevogna = (Handlevogn)Session["Handlevogn"];
+                        handlevogna.kunde = funnetBruker;
                             return RedirectToAction("Index", "Home");
                             // return "Kundenr: " + ((Kunde)Session["Bruker"]).KundeNR + " | Brukernavn: " + ((Kunde)Session["Bruker"]).Epost + " er logget inn!";
                         }
