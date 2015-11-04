@@ -97,6 +97,28 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Bilder\1.png" />
+    <Content Include="Bilder\2.png" />
+    <Content Include="Bilder\20.png" />
+    <Content Include="Bilder\21.png" />
+    <Content Include="Bilder\22.png" />
+    <Content Include="Bilder\23.png" />
+    <Content Include="Bilder\24.png" />
+    <Content Include="Bilder\25.png" />
+    <Content Include="Bilder\26.png" />
+    <Content Include="Bilder\27.png" />
+    <Content Include="Bilder\28.png" />
+    <Content Include="Bilder\29.png" />
+    <Content Include="Bilder\3.png" />
+    <Content Include="Bilder\30.png" />
+    <Content Include="Bilder\32.png" />
+    <Content Include="Bilder\4.png" />
+    <Content Include="Bilder\5.png" />
+    <Content Include="Bilder\6.png" />
+    <Content Include="Bilder\7.png" />
+    <Content Include="Bilder\8.png" />
+    <Content Include="Bilder\9.png" />
+    <Content Include="Bilder\logo.jpg" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
