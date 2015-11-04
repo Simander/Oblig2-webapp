@@ -5,6 +5,7 @@ using System.Globalization;
 using System.Text;
 using System.Threading.Tasks;
 using WebStoreDALBLL.Models;
+
 using DAL;
 
 namespace WebStoreDALBLL.DAL
@@ -18,8 +19,11 @@ namespace WebStoreDALBLL.DAL
             {
                 var nyBestilling = new Bestillinger()
                 {
-                    KundeId = hv.kunde.id
+                    KundeId = hv.kunde.id,
+                    Kunder = db.Kunder.FirstOrDefault(k => k.ID == hv.kunde.id)
+
                 };
+                
                 List<Ordrelinjer> nyOrdrelinjer = new List<Ordrelinjer>();
                 foreach (HandlevognItem h in hv.varer)
                 {
@@ -53,12 +57,13 @@ namespace WebStoreDALBLL.DAL
 
 		public List<Bestilling> getAll()
         {
-            var culture = new CultureInfo("de - DE");
+            
+            CultureInfo culture = new CultureInfo("de-DE");
             var db = new DBContext();
             List<Bestilling> allBestillinger = db.Bestillinger.Select(k => new Bestilling()
             {
                 id = k.ID,
-                dato = (k.OrderDate).ToString(culture),              
+                dato = (k.OrderDate).ToString(),              
                 kundeID = k.KundeId,
                 prisTotal = k.PrisTotal,
 
@@ -68,7 +73,7 @@ namespace WebStoreDALBLL.DAL
 
         public Bestilling getSingleBestilling(int id)
         {
-            var culture = new CultureInfo("de - DE");
+            var culture = new CultureInfo("de-DE");
             var db = new DBContext();
            
             var enDbBestilling = db.Bestillinger.Find(id);
@@ -82,10 +87,23 @@ namespace WebStoreDALBLL.DAL
                 var utBestilling = new Bestilling()
                 {
                     id = enDbBestilling.ID,
-                dato = (enDbBestilling.OrderDate).ToString(culture),              
-                kundeID = enDbBestilling.KundeId,
-                prisTotal = enDbBestilling.PrisTotal,
-
+                    dato = (enDbBestilling.OrderDate).ToString(),
+                    kundeID = enDbBestilling.KundeId,
+                    kunde = new Kunde()
+                    {
+                        id = enDbBestilling.Kunder.ID,
+                        fornavn = enDbBestilling.Kunder.Fornavn,
+                        etternavn = enDbBestilling.Kunder.Etternavn,
+                        telefonnr = enDbBestilling.Kunder.Telefonnr,
+                        adresse = enDbBestilling.Kunder.Adresse,
+                        postnr = enDbBestilling.Kunder.Postnr,
+                        poststed = enDbBestilling.Kunder.Poststeder.Poststed,
+                        epost = enDbBestilling.Kunder.Epost,
+                        hashPassord = enDbBestilling.Kunder.Password
+                    },
+                    varer = getOrdrelinjer(id),
+                    prisTotal = enDbBestilling.PrisTotal,
+                
                 };
                 return utBestilling;
             }

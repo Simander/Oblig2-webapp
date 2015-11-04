@@ -90,8 +90,8 @@ namespace WebStoreDALBLL.Controllers
                         {
                             Session["LoggetInn"] = true;
                             Session["Bruker"] = funnetBruker;
-                        Handlevogn handlevogna = (Handlevogn)Session["Handlevogn"];
-                        handlevogna.kunde = funnetBruker;
+                         Handlevogn handlevogna = (Handlevogn)Session["Handlevogn"];
+                            handlevogna.kunde = funnetBruker;
                             return RedirectToAction("Index", "Home");
                             // return "Kundenr: " + ((Kunde)Session["Bruker"]).KundeNR + " | Brukernavn: " + ((Kunde)Session["Bruker"]).Epost + " er logget inn!";
                         }

@@ -18,14 +18,18 @@ namespace WebStoreDALBLL.Controllers
 
         public ActionResult ListAllOrders()
         {
-            return View();
+            
+            var bestillingsDb = new BestillingsBLL();
+            List<Bestilling> alleBestillinger = bestillingsDb.getAll();
+            return View(alleBestillinger);
+          
         }
 
         public ActionResult DetailsOrder(int id)
         {
             var BestillingsDb = new BestillingsBLL();
             Bestilling enBestilling = BestillingsDb.getSingleBestilling(id);
-            List<Ordrelinje> bestillingsLinjer = BestillingsDb.getOrdrelinjer(id);
+         
             return View(enBestilling);
 
         }

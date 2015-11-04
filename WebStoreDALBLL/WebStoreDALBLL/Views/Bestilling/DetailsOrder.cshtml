@@ -1,0 +1,84 @@
+﻿@model WebStoreDALBLL.Models.Bestilling
+
+@{
+    ViewBag.Title = "DetailsOrder";
+}
+
+<h2>DetailsOrder</h2>
+
+<div>
+    <h4>Bestilling</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.dato)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dato)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.kundeID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kundeID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.kunde.fornavn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kunde.etternavn)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.kunde.telefonnr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kunde.telefonnr)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.kunde.epost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kunde.epost)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.kunde.adresse)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kunde.adresse)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.kunde.postnr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kunde.postnr)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.kunde.poststed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kunde.poststed)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.prisTotal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.prisTotal)
+        </dd>
+
+    </dl>
+</div>
+
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
