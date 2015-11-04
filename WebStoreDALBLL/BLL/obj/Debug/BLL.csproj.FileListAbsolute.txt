@@ -31,3 +31,14 @@ C:\Users\anders\Source\Repos\Oblig2-webapp\WebStoreDALBLL\BLL\bin\Debug\EntityFr
 C:\Users\anders\Source\Repos\Oblig2-webapp\WebStoreDALBLL\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
 C:\Users\anders\Source\Repos\Oblig2-webapp\WebStoreDALBLL\BLL\obj\Debug\BLL.dll
 C:\Users\anders\Source\Repos\Oblig2-webapp\WebStoreDALBLL\BLL\obj\Debug\BLL.pdb
+C:\Users\phong_ba\Documents\GitHubVisualStudio\Oblig2-webapp\WebStoreDALBLL\BLL\bin\Debug\BLL.dll
+C:\Users\phong_ba\Documents\GitHubVisualStudio\Oblig2-webapp\WebStoreDALBLL\BLL\bin\Debug\BLL.pdb
+C:\Users\phong_ba\Documents\GitHubVisualStudio\Oblig2-webapp\WebStoreDALBLL\BLL\bin\Debug\DAL.dll
+C:\Users\phong_ba\Documents\GitHubVisualStudio\Oblig2-webapp\WebStoreDALBLL\BLL\bin\Debug\Model.dll
+C:\Users\phong_ba\Documents\GitHubVisualStudio\Oblig2-webapp\WebStoreDALBLL\BLL\bin\Debug\EntityFramework.dll
+C:\Users\phong_ba\Documents\GitHubVisualStudio\Oblig2-webapp\WebStoreDALBLL\BLL\bin\Debug\DAL.pdb
+C:\Users\phong_ba\Documents\GitHubVisualStudio\Oblig2-webapp\WebStoreDALBLL\BLL\bin\Debug\Model.pdb
+C:\Users\phong_ba\Documents\GitHubVisualStudio\Oblig2-webapp\WebStoreDALBLL\BLL\bin\Debug\EntityFramework.xml
+C:\Users\phong_ba\Documents\GitHubVisualStudio\Oblig2-webapp\WebStoreDALBLL\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+C:\Users\phong_ba\Documents\GitHubVisualStudio\Oblig2-webapp\WebStoreDALBLL\BLL\obj\Debug\BLL.dll
+C:\Users\phong_ba\Documents\GitHubVisualStudio\Oblig2-webapp\WebStoreDALBLL\BLL\obj\Debug\BLL.pdb
