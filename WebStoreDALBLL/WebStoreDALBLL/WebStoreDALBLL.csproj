@@ -111,7 +111,11 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Images\cart.png" />
+    <Content Include="Bilder\fløyte.png" />
+    <Content Include="Bilder\gitar.png" />
+    <Content Include="Bilder\gitar2.png" />
+    <Content Include="Bilder\piano.png" />
+    <Content Include="Bilder\piano2.png" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
