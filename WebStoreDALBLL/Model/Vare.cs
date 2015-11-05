@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using System.Drawing;
+
 
 namespace WebStoreDALBLL.Models
 {
@@ -34,5 +36,8 @@ namespace WebStoreDALBLL.Models
         [Display(Name = "Varekategori")]
         [Required(ErrorMessage = "Varen må tilhøre en kategori")]
         public string kategori { get; set; }
+
+        public byte[] bilde { get; set; }
+        public string photo { get; set; }
     }
 }

@@ -52,7 +52,8 @@ namespace DAL
         public int ProdusentId { get; set; }
         public virtual Produsenter Produsenter { get; set; }
         public int KategoriId { get; set; }
-        public virtual Kategorier Kategorier { get; set; }
+        public virtual Kategorier Kategorier { get; set; }  
+        public string Bilde { get; set; }
     }
     public class Kategorier
     {

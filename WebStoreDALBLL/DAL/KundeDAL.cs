@@ -162,7 +162,7 @@ namespace WebStoreDALBLL.DAL
         public Kunde getSingleCustomerByEmail(string email)
         {
             var db = new DBContext();
-            var enDbKunde = db.Kunder.FirstOrDefault();
+            var enDbKunde = db.Kunder.FirstOrDefault(k => k.Epost.Equals(email));
 
             if (enDbKunde == null)
             {

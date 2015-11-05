@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -175,11 +177,28 @@ namespace WebStoreDALBLL.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddNewGoods(Vare innVare)
+        public ActionResult AddNewGoods(Vare innVare, HttpPostedFileBase file)
         {
+            // Verify that the user selected a file
+            if (file != null && file.ContentLength > 0)
+            {
+                // extract only the filename
+                var fileName = Path.GetFileName(file.FileName);
+                // store the file inside ~/App_Data/uploads folder
+                var path = Path.Combine(Server.MapPath("~/images"), fileName);
+                file.SaveAs(path);
+                //innVare.bilde = "~/images"+fileName;
+            }
+            
             if (loginCheck() == false) { return RedirectToAction("LoggInn"); }
+    
+          
             if (ModelState.IsValid)
             {
+                
+                
+               // byte[] image2Store = BildeMetoder.ImageToByteArray(innListe["image"]);
+               // innVare.bilde = image2Store;
                 var vareDb = new VareBLL();
                 bool insertOK = vareDb.insertVare(innVare);
                 if (insertOK)
@@ -239,6 +258,7 @@ namespace WebStoreDALBLL.Controllers
             if (loginCheck() == false) { return RedirectToAction("LoggInn"); }
             var vareDb = new VareBLL();
             Vare enVare = vareDb.getSingleGoods(id);
+           
             return View(enVare);
         }
 

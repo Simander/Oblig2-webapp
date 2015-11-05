@@ -158,7 +158,8 @@ namespace WebStoreDALBLL.DAL
                 Varenavn = innVare.navn,
                 Pris = innVare.pris,
                 Kvantitet = innVare.kvantitet,
-                Beskrivelse = innVare.beskrivelse
+                Beskrivelse = innVare.beskrivelse,
+                Bilde = innVare.photo
     
             };
 
@@ -267,7 +268,8 @@ namespace WebStoreDALBLL.DAL
                     kategori = enDbVare.Kategorier.Navn,
                     produsent = enDbVare.Produsenter.Navn,
                     beskrivelse = enDbVare.Beskrivelse,
-                    kvantitet = enDbVare.Kvantitet
+                    kvantitet = enDbVare.Kvantitet,
+                    photo = enDbVare.Bilde
                    
                 };
                 return utVare;

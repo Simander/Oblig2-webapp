@@ -52,6 +52,7 @@
     <Compile Include="AdminDAL.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="DBContext.cs" />
+    <Compile Include="ImageConversion.cs" />
     <Compile Include="PoststedDAL.cs" />
     <Compile Include="VareDAL.cs" />
     <Compile Include="KundeDAL.cs" />

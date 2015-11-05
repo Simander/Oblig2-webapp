@@ -42,7 +42,7 @@ namespace WebStoreDALBLL.Controllers
                 bool insertOK = kundeDb.insertCustomer(innKunde);
                 if (insertOK)
                 {
-                    return RedirectToAction("Liste");
+                    return RedirectToAction("Index", "Home");
                 }
             }
             return View();
