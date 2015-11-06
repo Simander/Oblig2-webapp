@@ -38,6 +38,6 @@ namespace WebStoreDALBLL.Models
         public string kategori { get; set; }
 
         public byte[] bilde { get; set; }
-        public string photo { get; set; }
+        public string photoURL { get; set; }
     }
 }

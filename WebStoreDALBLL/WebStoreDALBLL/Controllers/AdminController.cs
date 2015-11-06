@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using WebStoreDALBLL.BLL;
@@ -177,19 +179,11 @@ namespace WebStoreDALBLL.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddNewGoods(Vare innVare, HttpPostedFileBase file)
+        public ActionResult AddNewGoods(Vare innVare)
         {
-            // Verify that the user selected a file
-            if (file != null && file.ContentLength > 0)
-            {
-                // extract only the filename
-                var fileName = Path.GetFileName(file.FileName);
-                // store the file inside ~/App_Data/uploads folder
-                var path = Path.Combine(Server.MapPath("~/images"), fileName);
-                file.SaveAs(path);
-                //innVare.bilde = "~/images"+fileName;
-            }
             
+            
+         
             if (loginCheck() == false) { return RedirectToAction("LoggInn"); }
     
           
@@ -208,6 +202,7 @@ namespace WebStoreDALBLL.Controllers
             }
             return View();
         }
+       
 
         public ActionResult EditGoods(int id)
         {

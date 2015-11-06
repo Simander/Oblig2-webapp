@@ -6,6 +6,7 @@
 
 <h2>Varedetaljer</h2>
 
+@using(Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" })){
 <div>
     <h4>Vare</h4>
     <hr />
@@ -58,16 +59,17 @@
             @Html.DisplayFor(model => model.kategori)
         </dd>
         <dt>
-            @Html.DisplayName("Varebilde")
+            Varebilde
         </dt>
         <dd>
-            <img src="@Url.Content(@Model.photo)" alt="Varebilde" />
+            <img src="@Model.photoURL" alt="Varebilde" />
             
         </dd>
 
 
     </dl>
 </div>
+}
 <p>
     @Html.ActionLink("Edit", "EditGoods", new { id = Model.id }, new { @class = "btn btn-warning" }) |
     @Html.ActionLink("Tilbake til varer", "ListGoods","Admin", new { @class = "btn btn-primary" })
