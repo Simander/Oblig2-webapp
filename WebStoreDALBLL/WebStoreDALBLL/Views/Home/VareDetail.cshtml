@@ -1,9 +1,9 @@
 ﻿@model WebStoreDALBLL.Models.Vare
-
-<div>
-    <h4>Vare</h4>
-    <hr />
-    <dl class="dl-horizontal">
+<div class="row">
+    <div class="col-lg-4">
+        <h4>Vare</h4>
+        <hr />
+        <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.navn)
         </dt>
@@ -51,10 +51,24 @@
         <dd>
             @Html.DisplayFor(model => model.kategori)
         </dd>
+       
 
-    </dl>
+        </dl>
+
+        <p>
+            @Html.ActionLink("Legg i handlevognen", "AddToCart", new { vareID = Model.id }, new { @class = "btn btn-primary" }) |
+            @Html.ActionLink("Tilbake", "BrowseCategories")
+        </p>
+    </div>
+
+
+
+    <div class="col-lg-1">
+        
+           
+           
+                <img src="@Model.photoURL" width="400" height="400" />
+           
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Legg i handlevognen", "AddToCart", new { vareID = Model.id}, new { @class="btn btn-primary"}) |
-    @Html.ActionLink("Tilbake", "BrowseCategories")
-</p>
+

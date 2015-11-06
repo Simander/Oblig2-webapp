@@ -40,11 +40,11 @@ namespace WebStoreDALBLL.BLL
             return allProducers;
         }
 
-        public bool insertKategori(String kategori)
+        public bool insertKategori(String kategori, String photourl)
         {
 
             var VareDAL = new VareDAL();
-            return VareDAL.insertKategori(kategori);
+            return VareDAL.insertKategori(kategori, photourl);
         }
         public bool insertProdusent(String prodNavn)
         {

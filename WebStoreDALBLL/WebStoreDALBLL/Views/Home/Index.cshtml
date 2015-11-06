@@ -1,1 +1,20 @@
-﻿<h1>Velkommen til vår lille butikk</h1>
+﻿@model List<WebStoreDALBLL.Models.Kategori>
+
+<div class="jumbotron">
+    <h1>Velkommen til vår lille butikk</h1>
+    <p class="lead">Her vil vi lage vår lille test instrument Butikk</p>
+</div>
+<div class="row">
+        @foreach (var item in Model)
+        {
+
+            <div class="col-md-2">
+                <div>
+                    <img src="@item.photoURL" width="128" height="128" />
+                </div>
+                <div>
+                    @Html.ActionLink(item.navn, "Browse", "Home", new { kategori = item.navn }, new { @class = "h3" })
+                </div>
+            </div>
+        }
+    </div>

@@ -64,7 +64,8 @@ namespace WebStoreDALBLL.DAL
                 List<Kategori> categories = db.Kategorier.Select(item => new Kategori()
                     {
                         id = item.ID,
-                        navn = item.Navn
+                        navn = item.Navn,
+                        photoURL = item.PhotoURL
                     }).ToList();
                     return categories;
             }
@@ -94,12 +95,13 @@ namespace WebStoreDALBLL.DAL
             }
         }
 
-        public bool insertKategori(String kategori)
+        public bool insertKategori(String kategori, String photoURL)
         {
-           
+
             var nyKategori = new Kategorier()
             {
-                Navn = kategori
+                Navn = kategori,
+                PhotoURL = photoURL
             };
             try
             {
@@ -120,6 +122,62 @@ namespace WebStoreDALBLL.DAL
             {
                 writeToFile(feil);
                 return false;
+            }
+        }
+        public bool changeCategory(int id, Vare innKategori)
+        {
+            var db = new DBContext();
+            try
+            {
+                Kategorier endreKat = db.Kategorier.Find(id);
+                endreKat.Navn = innKategori.navn;
+                endreKat.PhotoURL = innKategori.photoURL;
+                db.SaveChanges();
+                return true;
+            }
+            catch (Exception feil)
+            {
+                writeToFile(feil);
+                return false;
+            }
+        }
+        public bool deleteCategory(int slettId)
+        {
+            var db = new DBContext();
+            try
+            {
+                Kategorier slettKat = db.Kategorier.Find(slettId);
+                db.Kategorier.Remove(slettKat);
+                db.SaveChanges();
+                return true;
+            }
+            catch (Exception feil)
+            {
+                writeToFile(feil);
+                return false;
+            }
+        }
+
+        public Kategori getSingleCategory(int id)
+        {
+            var db = new DBContext();
+            var enDbKat = db.Kategorier.Find(id);
+
+            if (enDbKat == null)
+            {
+                return null;
+            }
+            else
+            {
+                var utKat = new Kategori()
+                {
+                    id = enDbKat.ID,
+                    navn = enDbKat.Navn,
+                   
+                    photoURL = enDbKat.PhotoURL
+
+                };
+                return utKat;
             }
         }
         public bool insertProducer(String prodNavn)
@@ -159,7 +217,7 @@ namespace WebStoreDALBLL.DAL
                 Pris = innVare.pris,
                 Kvantitet = innVare.kvantitet,
                 Beskrivelse = innVare.beskrivelse,
-                Bilde = innVare.photoURL
+                PhotoURL = innVare.photoURL
     
             };
 
@@ -172,7 +230,8 @@ namespace WebStoreDALBLL.DAL
                 {
                     Kategorier nyKat = new Kategorier()
                     {
-                        Navn = innVare.kategori
+                        Navn = innVare.kategori,
+                        PhotoURL = innVare.photoURL
                     };
                     nyVare.Kategorier = nyKat;
                     nyVare.KategoriId = nyKat.ID;
@@ -269,7 +328,7 @@ namespace WebStoreDALBLL.DAL
                     produsent = enDbVare.Produsenter.Navn,
                     beskrivelse = enDbVare.Beskrivelse,
                     kvantitet = enDbVare.Kvantitet,
-                    photoURL = enDbVare.Bilde
+                    photoURL = enDbVare.PhotoURL
                    
                 };
                 return utVare;

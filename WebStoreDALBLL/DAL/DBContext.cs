@@ -53,13 +53,14 @@ namespace DAL
         public virtual Produsenter Produsenter { get; set; }
         public int KategoriId { get; set; }
         public virtual Kategorier Kategorier { get; set; }  
-        public string Bilde { get; set; }
+        public string PhotoURL { get; set; }
     }
     public class Kategorier
     {
         [Key]
         public int ID { get; set; }
         public string Navn { get; set; }
+        public string PhotoURL { get; set; }
         public virtual List<Varer> Varer { get; set; }
     }
     public class Produsenter

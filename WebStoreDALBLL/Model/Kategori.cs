@@ -11,5 +11,6 @@ namespace WebStoreDALBLL.Models
         public int id { get; set; }
 
         public string navn{get; set; }
+        public string photoURL { get; set; }
     }
 }

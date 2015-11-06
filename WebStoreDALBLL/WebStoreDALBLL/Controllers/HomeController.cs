@@ -28,8 +28,12 @@ namespace WebStoreDALBLL.Controllers
             {
                 
                 ViewBag.Innlogget = (bool)Session["LoggetInn"];
+
             }
-            return View();
+            var vareDb = new VareBLL();
+            List<Kategori> alleKat = vareDb.getAllCategories();
+            return View(alleKat);
+           
         }
 
         public ActionResult BrowseCategories()
