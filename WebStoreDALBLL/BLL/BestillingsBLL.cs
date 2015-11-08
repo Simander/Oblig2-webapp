@@ -23,6 +23,13 @@ namespace WebStoreDALBLL.BLL
             return allBestillinger;
         }
 
+        public List<Bestilling> getAllOrders(int innKID)
+        {
+            var BestillingsDAL = new BestillingsDAL();
+            List<Bestilling> allBestillinger = BestillingsDAL.getAllOrders(innKID);
+            return allBestillinger;
+        }
+
         public Bestilling getSingleBestilling(int id)
         {
             var BestillingsDAL = new BestillingsDAL();
@@ -34,7 +41,15 @@ namespace WebStoreDALBLL.BLL
             var BestillingsDAL = new BestillingsDAL();
             List<Ordrelinje> allOrdrelinjer = BestillingsDAL.getOrdrelinjer(kundeID);
             return allOrdrelinjer;
-        
+
+        }
+
+        public List<Ordrelinje> getAllOrdrelinjer()
+        {
+
+            BestillingsDAL BestillingsDAL = new BestillingsDAL();
+            List<Ordrelinje> allOrdrelinjer = BestillingsDAL.getAllOrdrelinjer();
+            return allOrdrelinjer;
         }
     }
 }

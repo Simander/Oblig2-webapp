@@ -9,8 +9,12 @@
 {
 
     <li>
+        
         @Html.ActionLink(item.navn, "Browse", "Home", new { kategori = item.navn }, new { @class="h3"})
+        <a href="@Url.Action("Browse","Home", new { kategori = item.navn })"> <img src="@item.photoURL" height="128" /></a>
+        
     </li>
+
 }
 </ul>
 

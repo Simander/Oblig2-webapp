@@ -4,7 +4,7 @@
     ViewBag.Title = "DetailsOrder";
 }
 
-<h2>DetailsOrder</h2>
+<h2>Detaljer</h2>
 
 <div>
     <h4>Bestilling</h4>
@@ -77,8 +77,54 @@
 
     </dl>
 </div>
+<div class="row" width="350">
+  
+        <div class="col-md-3">
+            <strong>@Html.DisplayNameFor(model => model.varer[0].Vare.navn)</strong>
+        </div>
+        <div class="col-md-2">
+            <strong>@Html.DisplayNameFor(model => model.varer[0].Antall)</strong>
+        </div>
+        <div class="col-md-2">
+            <strong>@Html.DisplayNameFor(model => model.varer[0].Vare.pris)</strong>
+        </div>
 
-    <p>
-        @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-        @Html.ActionLink("Back to List", "Index")
-    </p>
+</div>
+
+    @foreach (var item in Model.varer)
+    {
+        <div class="row">
+            <div class="col-md-3">
+                @Html.DisplayFor(modelItem => item.Vare.navn)
+            </div>
+            <div class="col-md-2">
+
+                @Html.DisplayFor(modelItem => item.Antall, new { @id = (item.Vare.id + "l") })
+            </div>
+            <div class="col-md-2">
+                @Html.DisplayFor(modelItem => item.Vare.pris)
+            </div>
+
+
+        </div>
+    }
+<div class="row">
+    <div class="col-md-3 bg-info">
+        <strong>Sum total</strong>
+    </div>
+    <div class="col-md-2 bg-info">
+        <strong>:</strong>
+    </div>
+    <div class="col-md-2 bg-info">
+        <strong>@Html.DisplayFor(model => model.prisTotal)</strong>
+    </div>
+</div>
+ <br />
+
+            
+       
+ 
+
+
+
+

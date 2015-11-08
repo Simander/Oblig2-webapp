@@ -28,5 +28,15 @@ namespace WebStoreDALBLL.Models
         public int id { get; set; }
         public Vare Vare { get; set; }
         public int Antall { get; set; }
+
+        public void decAntall()
+        {
+            Antall--;
+
+        } 
+        public void incAntall()
+        {
+            Antall++;
+        }
     }
 }

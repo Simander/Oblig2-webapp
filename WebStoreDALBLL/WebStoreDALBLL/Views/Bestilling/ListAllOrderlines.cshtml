@@ -1,0 +1,52 @@
+﻿@model IEnumerable<WebStoreDALBLL.Models.Ordrelinje>
+
+@{
+    ViewBag.Title = "ListAllOrderlines";
+}
+
+<h2>ListAllOrderlines</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Antall)
+        </th>
+        <th>
+            @Html.DisplayName("Bestillingsnr")
+        </th>
+        <th>
+            @Html.DisplayName("varenavn")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.bestillingsnr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Antall)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Vare.navn)
+        </td>
+        
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

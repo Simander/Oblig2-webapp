@@ -93,6 +93,7 @@ namespace WebStoreDALBLL.Controllers
                 if (funnetVare == null)
                 {
                     HandlevognItem hv1 = new HandlevognItem();
+                    
                     hv1.Vare = vare;
                     hv1.Antall = 1;
                     handlevogn.varer.Add(hv1);
@@ -131,14 +132,17 @@ namespace WebStoreDALBLL.Controllers
             return RedirectToAction("Handlevogn", "Home");
             
         }
-        public string EndreAntallAvVare(int vareID, int antall)
+        public ActionResult EndreAntallAvVare(int vareID, int antall)
         {
-            return vareID + "|" + antall;
-            /*
+            Handlevogn hv = (Handlevogn)Session["Handlevogn"];
+            HandlevognItem hvi = hv.varer.FirstOrDefault(k=> k.Vare.id == vareID);
+            hvi.Antall = antall;
+            return RedirectToAction("Handlevogn");
+            /*;
             if (Session["Handlevogn"] == null)
             {
                 Session["Handlevogn"] = new Handlevogn();
-            }
+            }vi
 
 
             Handlevogn handlevogn = ((Handlevogn)Session["Handlevogn"]);

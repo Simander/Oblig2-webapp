@@ -42,7 +42,7 @@ namespace WebStoreDALBLL.Models {
         public string epost { get; set; }
 
         [Display(Name = "Passord")]
-        [RegularExpression(@"(^[a-zA-Z0-9æÆøØåÅ]{8}$)", ErrorMessage = "Passordet må være 8 tegn langt ")]
+        [RegularExpression(@"(^[a-zA-Z0-9æÆøØåÅ]{8,}$)", ErrorMessage = "Passordet må være 8 tegn langt ")]
         [Required(ErrorMessage = "Passord må oppgis")]
         public string passord { get; set; }
         public byte[] hashPassord { get; set; }

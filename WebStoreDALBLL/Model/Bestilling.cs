@@ -22,7 +22,9 @@ namespace WebStoreDALBLL.Models
     public class Ordrelinje
     {
         public int id { get; set; }
+        public int bestillingsnr { get; set; }
         public Vare Vare { get; set; }
         public int Antall { get; set; }
+
     }
 }

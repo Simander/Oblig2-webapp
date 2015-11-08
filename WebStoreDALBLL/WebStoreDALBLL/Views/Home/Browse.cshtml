@@ -1,15 +1,18 @@
 ﻿@model List<WebStoreDALBLL.Models.Vare>
 
 <h2>@Model[0].kategori</h2>
-<ul>
-@foreach (var item in Model) {
 
-        <li>    @Html.ActionLink(((item.navn) + " , " + (item.pris) +"kr"),
-               "VareDetail", "Home", new { vareID = item.id }, null)
-         
-        </li>       
-       
+@foreach (var item in Model)
+{
+    <div class="row table-bordered">
+        <div class="col-md-6">
+            @Html.ActionLink(((item.navn) + " , " + (item.pris) + "kr"),
+               "VareDetail", "Home", new { vareID = item.id }, new { @class = "h4" })
+        
+            <a href="@Url.Action("VareDetail", "Home", new { vareID = item.id })"> <img src="@item.photoURL" height="20" class="img-responsive img-thumbnail" /></a>
 
+</div>
+    </div>
 }
 
-</ul>
+    

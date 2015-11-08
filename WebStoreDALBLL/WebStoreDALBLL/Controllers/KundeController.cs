@@ -106,6 +106,52 @@ namespace WebStoreDALBLL.Controllers
                 return View(feil);
             }
         }
+        
+        public ActionResult MinSide()
+        {
+            Kunde deg = (Kunde)Session["Bruker"];
+            return View(deg);
+        }
+    
+        public ActionResult MineOrdrer()
+        {
+            Kunde deg = (Kunde)Session["Bruker"];
+            var ordreliste = new BestillingsBLL();
+            var utdata = ordreliste.getAllOrders(deg.id);
+            return View(utdata);
+        }
 
+        public ActionResult DetailsOrder(int id)
+        {
+            var BestillingsDb = new BestillingsBLL();
+            Bestilling enBestilling = BestillingsDb.getSingleBestilling(id);
+
+            return View(enBestilling);
+
+        }
+
+        public ActionResult EndreBruker(int id)
+        {
+            Kunde innlogget = (Kunde)Session["Bruker"];
+            var kundeDb = new KundeBLL();
+            Kunde enKunde = kundeDb.getSingleCustomer(innlogget.id);
+            return View(enKunde);
+        }
+
+        [HttpPost]
+        public ActionResult EndreBruker(int id, Kunde endreKunde)
+        {
+         
+            if (ModelState.IsValid)
+            {
+                var kundeDb = new KundeBLL();
+                bool endringOK = kundeDb.changeCustomer(id, endreKunde);
+                if (endringOK)
+                {
+                    return RedirectToAction("MinSide");
+                }
+            }
+            return View();
+        }
     }
 }

@@ -16,3 +16,9 @@ textarea {
     max-width: 280px;
 }
 
+.center-cropped {
+ 
+  clip: rect(0,128,128,0);
+  overflow: hidden;
+}
+

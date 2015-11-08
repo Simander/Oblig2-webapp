@@ -57,6 +57,7 @@ namespace WebStoreDALBLL.Controllers
         [HttpPost]
         public ActionResult LoggInn(FormCollection innListe)
         {
+
             var brukernavn = innListe["Epost"];
             var passord = KundeBLL.hashPword(innListe["Passord"]);
          
@@ -112,6 +113,7 @@ namespace WebStoreDALBLL.Controllers
 
         public ActionResult EditCustomer(int id)
         {
+            if (loginCheck() == false) { return RedirectToAction("LoggInn"); }
             var kundeDb = new KundeBLL();
             Kunde enKunde = kundeDb.getSingleCustomer(id);
             return View(enKunde);
@@ -135,6 +137,7 @@ namespace WebStoreDALBLL.Controllers
 
         public ActionResult DeleteCustomer(int id)
         {
+
             if (loginCheck() == false) { return RedirectToAction("LoggInn"); }
             var kundeDb = new KundeBLL();
             Kunde enKunde = kundeDb.getSingleCustomer(id);
@@ -382,6 +385,7 @@ namespace WebStoreDALBLL.Controllers
         [HttpPost]
         public ActionResult RegisterNewAdmin(AdminBruker innAdmin)
         {
+            if (loginCheck() == false) { return RedirectToAction("LoggInn"); }
             if (ModelState.IsValid)
             {
                 var adminDb = new AdminBLL();
@@ -393,5 +397,7 @@ namespace WebStoreDALBLL.Controllers
             }
             return View();
         }
+
+        
     }
 }

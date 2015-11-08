@@ -1,0 +1,42 @@
+﻿@model IEnumerable<WebStoreDALBLL.Models.Bestilling>
+
+@{
+    ViewBag.Title = "MineOrdrer";
+}
+
+<h2>MineOrdrer</h2>
+
+
+<div class="row">
+    
+        <div class="col-md-2">
+            <strong> @Html.DisplayNameFor(model => model.dato)</strong>
+        </div>
+        <div class="col-md-1">
+           <strong> @Html.DisplayNameFor(model => model.kundeID)</strong>
+        </div>
+        <div class="col-md-2">
+           <strong> @Html.DisplayNameFor(model => model.prisTotal)</strong>
+        </div>
+  
+</div>
+
+@foreach (var item in Model) {
+    <div class="row">
+        <div class="col-md-2">
+            @Html.DisplayFor(modelItem => item.dato)
+        </div>
+        <div class="col-md-1">
+            @Html.DisplayFor(modelItem => item.kundeID)
+        </div>
+        <div class="col-md-2">
+            @Html.DisplayFor(modelItem => item.prisTotal)
+        </div>
+        <div class="col-md-2">
+
+            @Html.ActionLink("Detaljer", "DetailsOrder", new { id = item.id }, new { @class = "btn btn-primary" })
+        </div>
+    </div>
+}
+
+

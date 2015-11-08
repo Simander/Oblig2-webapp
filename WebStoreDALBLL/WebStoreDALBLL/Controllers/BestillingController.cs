@@ -40,6 +40,13 @@ namespace WebStoreDALBLL.Controllers
 
         }
 
+        public ActionResult ListAllOrderlines()
+        {
+            var BestillingsDb = new BestillingsBLL();
+            List<Ordrelinje> or = BestillingsDb.getAllOrdrelinjer();
+            return View(or);
+        }
+
         public ActionResult DetailsOrdreSum(int id)
         {
             return View();

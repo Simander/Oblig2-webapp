@@ -17,36 +17,50 @@ namespace WebStoreDALBLL.DAL
             var db = new DBContext();
             try
             {
+                List<Ordrelinjer> ordrelinjer = new List<Ordrelinjer>();
+                hv.calculateSumTotal();
+                DateTime now = DateTime.Now;
+                Kunder kunden = db.Kunder.FirstOrDefault(k => k.ID == hv.kunde.id);
                 var nyBestilling = new Bestillinger()
                 {
-                    KundeId = hv.kunde.id,
-                    Kunder = db.Kunder.FirstOrDefault(k => k.ID == hv.kunde.id)
-
+                    KundeId = kunden.ID,
+                    Kunder = kunden,
+                    PrisTotal = hv.prisTotal,
+                    OrderDate = now,
+                    Ordrelinjer = ordrelinjer
+                    
                 };
-                
-                List<Ordrelinjer> nyOrdrelinjer = new List<Ordrelinjer>();
+                db.Bestillinger.Add(nyBestilling);
+                db.SaveChanges();
+           //     var bestilingur = db.Bestillinger.LastOrDefault(k => k.KundeId == kunden.ID);
+                //List<Ordrelinjer> nyOrdrelinjer = new List<Ordrelinjer>();
+              
                 foreach (HandlevognItem h in hv.varer)
                 {
                     Ordrelinjer tmpOrdrelinje = new Ordrelinjer()
                     {
-                        ID = h.id,
+                       
                         ProduktId = h.Vare.id,
                         Vare = db.Varer.FirstOrDefault(k => k.ID == h.Vare.id),
                         Kvantitet = h.Antall,
-                        Bestillingsnr = nyBestilling.ID,
-                        Bestilling = nyBestilling
-
+                        
+                        Bestilling = nyBestilling,
+                        Bestillingsnr = nyBestilling.ID
                     };
 
-                    nyOrdrelinjer.Add(tmpOrdrelinje);
-                    db.Ordrelinjer.Add(tmpOrdrelinje);
+                    nyBestilling.Ordrelinjer.Add(tmpOrdrelinje);
+                   
                 }
-                nyBestilling.Ordrelinjer = nyOrdrelinjer;
-                hv.calculateSumTotal();
-                nyBestilling.PrisTotal = hv.prisTotal;
-                nyBestilling.OrderDate = DateTime.Now;
-                db.Bestillinger.Add(nyBestilling);
+              
+               
+              
+                //  nyBestilling.Ordrelinjer = nyOrdrelinjer;
+
+
                 db.SaveChanges();
+
+               
+              
                 return true;
             }
             catch (Exception feil)
@@ -55,7 +69,7 @@ namespace WebStoreDALBLL.DAL
             }
         }
 
-		public List<Bestilling> getAll()
+        public List<Bestilling> getAll()
         {
             
             CultureInfo culture = new CultureInfo("de-DE");
@@ -71,10 +85,56 @@ namespace WebStoreDALBLL.DAL
             return allBestillinger;
         }
 
+        public List<Bestilling> getAllOrders(int innKID)
+        {
+
+           
+            var db = new DBContext();
+            List<Bestilling> orders = getAll();
+            List<Bestilling> utOrders = new List<Bestilling>();
+            foreach(Bestilling best in orders)
+            {
+                if(best.kundeID == innKID)
+                {
+                    utOrders.Add(best);
+                }
+            }
+
+            return utOrders;
+        }
+
+        public List<Ordrelinje> getAllOrdrelinjer()
+        {
+
+            CultureInfo culture = new CultureInfo("de-DE");
+            var db = new DBContext();
+            List<Ordrelinje> allOrdrelinjer = db.Ordrelinjer.Select(k => new Ordrelinje()
+            {
+                id = k.ID,
+                bestillingsnr = k.Bestillingsnr,
+                Vare = new Vare(){
+                    id = k.Vare.ID,
+                    navn = k.Vare.Varenavn,
+                    pris = k.Vare.Pris,
+                    kategori = k.Vare.Kategorier.Navn,
+                    kvantitet = k.Vare.Kvantitet,
+                    beskrivelse = k.Vare.Beskrivelse,
+                    photoURL = k.Vare.PhotoURL,
+                    produsent = k.Vare.Produsenter.Navn
+                    
+
+
+                },
+                Antall = k.Kvantitet
+            }).ToList();
+            return allOrdrelinjer;
+        }
+
         public Bestilling getSingleBestilling(int id)
         {
             var culture = new CultureInfo("de-DE");
             var db = new DBContext();
+            KundeDAL kd = new KundeDAL();
            
             var enDbBestilling = db.Bestillinger.Find(id);
 
@@ -89,18 +149,7 @@ namespace WebStoreDALBLL.DAL
                     id = enDbBestilling.ID,
                     dato = (enDbBestilling.OrderDate).ToString(),
                     kundeID = enDbBestilling.KundeId,
-                    kunde = new Kunde()
-                    {
-                        id = enDbBestilling.Kunder.ID,
-                        fornavn = enDbBestilling.Kunder.Fornavn,
-                        etternavn = enDbBestilling.Kunder.Etternavn,
-                        telefonnr = enDbBestilling.Kunder.Telefonnr,
-                        adresse = enDbBestilling.Kunder.Adresse,
-                        postnr = enDbBestilling.Kunder.Postnr,
-                        poststed = enDbBestilling.Kunder.Poststeder.Poststed,
-                        epost = enDbBestilling.Kunder.Epost,
-                        hashPassord = enDbBestilling.Kunder.Password
-                    },
+                    kunde = kd.getSingleCustomer(enDbBestilling.KundeId),
                     varer = getOrdrelinjer(id),
                     prisTotal = enDbBestilling.PrisTotal,
                 
@@ -109,41 +158,34 @@ namespace WebStoreDALBLL.DAL
             }
         }
 
-		public List<Ordrelinje> getOrdrelinjer(int kundeID)
+		public List<Ordrelinje> getOrdrelinjer(int bestillingsID)
         {
             var db = new DBContext();
-            var enDbBestilling = db.Bestillinger.Find(kundeID);
-
+            var enDbBestilling = db.Bestillinger.Find(bestillingsID);
+            var vareDAL = new VareDAL();
+            var alleOrdrelinjer = db.Ordrelinjer;
             if (enDbBestilling == null)
             {
                 return null;
             }
             else
             {
+                List<Ordrelinje> getOrdrelinjer = getAllOrdrelinjer();
                 List<Ordrelinje> utOrdrelinjer = new List<Ordrelinje>();
-                foreach (Ordrelinjer or in enDbBestilling.Ordrelinjer)
+
+                foreach (Ordrelinje or in getOrdrelinjer)
                 {
-                    Ordrelinje tmpOrdreLinje = new Ordrelinje()
-                    {
-                        id = or.ID,
-                        Vare = new Vare()
-                        {
-                            id = or.ID,
-                            navn = or.Vare.Varenavn,
-                            pris = or.Vare.Pris,
-                            kategori = or.Vare.Kategorier.Navn,
-                            produsent = or.Vare.Produsenter.Navn,
-                            beskrivelse = or.Vare.Beskrivelse,
-                            kvantitet = or.Vare.Kvantitet
-                        },
-                        Antall = or.Kvantitet
-                    };
-                    utOrdrelinjer.Add(tmpOrdreLinje);
-                }
-				
+                   if(or.bestillingsnr == bestillingsID)
+                        utOrdrelinjer.Add(or);
+                    }
+
                 return utOrdrelinjer;
             }
+				
+               
+            
         }
+        
 
     }
 }

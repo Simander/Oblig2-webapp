@@ -30,6 +30,55 @@
 
     </dl>
 </div>
+   <table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.varer[0].Vare.navn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.varer[0].Antall)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.varer[0].Vare.pris)
+        </th>
+        <th>
+        </th>
+    </tr>
+
+    @foreach (var item in Model.varer)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vare.navn)
+            </td>
+            <td>
+
+                @Html.DisplayFor(modelItem => item.Antall, new { @id = (item.Vare.id + "l") })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vare.pris)
+
+            </td>
+
+            <td>
+
+                @Html.ActionLink("Edit", "EndreAntallAvVare", new { vareID = item.Vare.id, antall = (item.Vare.id + "l") }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Slett", "FjernHandlevognLinje", new { vareID = item.Vare.id })
+            </td>
+        </tr>
+    }
+    <tr class="bg-info">
+        <td>
+            <strong>Sum total:</strong>
+        </td>
+        <td></td>
+
+        <td><strong>@Html.DisplayFor(model => model.prisTotal)</strong></td>
+    </tr>
+
+
+</table>
 <p>
     @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
     @Html.ActionLink("Back to List", "Index")

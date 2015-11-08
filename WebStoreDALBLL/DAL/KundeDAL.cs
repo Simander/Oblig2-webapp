@@ -100,6 +100,7 @@ namespace WebStoreDALBLL.DAL
                             Poststed = innKunde.poststed
                         };
                         db.Poststeder.Add(nyttPoststed);
+                        endreKunde.Poststeder = nyttPoststed;
                     }
                     else
                     {

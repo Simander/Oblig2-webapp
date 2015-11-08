@@ -4,15 +4,19 @@
     <h1>Velkommen til vår lille butikk</h1>
     <p class="lead">Her vil vi lage vår lille test instrument Butikk</p>
 </div>
+
 <div class="row">
+
         @foreach (var item in Model)
         {
 
-            <div class="col-md-2">
+            <div class="col-md-3">
                 <div>
-                    <img src="@item.photoURL" width="128" height="128" />
-                </div>
-                <div>
+                    <a href="@Url.Action("Browse","Home", new { kategori = item.navn })">
+                         <img src="@item.photoURL" height="128"  class="img-thumbnail" />
+                    </a>
+</div>
+                <div class="text-center">
                     @Html.ActionLink(item.navn, "Browse", "Home", new { kategori = item.navn }, new { @class = "h3" })
                 </div>
             </div>

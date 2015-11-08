@@ -26,14 +26,16 @@
             </td>
             <td>
 
-                @Html.EditorFor(modelItem => item.Antall, new { @id = (item.Vare.id + "l") })
+                @Html.DisplayFor(modelItem => item.Antall, new { @id = (item.Vare.id +"l") })
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Vare.pris)
 
             </td>
+            
             <td>
-                @Html.ActionLink("Edit", "EndreAntallAvVare",  new { vareID = item.Vare.id, antall = item.Antall } ) |
+               
+                @Html.ActionLink("Edit", "EndreAntallAvVare",  new { vareID = item.Vare.id, antall = (item.Vare.id+"l") } ) |
                 @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
                 @Html.ActionLink("Slett", "FjernHandlevognLinje", new { vareID=item.Vare.id})
             </td>

@@ -33,7 +33,8 @@ namespace WebStoreDALBLL.DAL
                 kvantitet = k.Kvantitet,
                 beskrivelse = k.Beskrivelse,
                 produsent = k.Produsenter.Navn,
-                kategori = k.Kategorier.Navn
+                kategori = k.Kategorier.Navn,
+                photoURL = k.PhotoURL
 
             }).ToList();
             return allGoods;
@@ -50,7 +51,8 @@ namespace WebStoreDALBLL.DAL
                 kvantitet = k.Kvantitet,
                 beskrivelse = k.Beskrivelse,
                 produsent = k.Produsenter.Navn,
-                kategori = k.Kategorier.Navn
+                kategori = k.Kategorier.Navn,
+                photoURL = k.PhotoURL
 
             }).Where(k => k.kategori.ToUpper().Equals(kat.ToUpper())).ToList();
             return allGoods;
@@ -233,15 +235,16 @@ namespace WebStoreDALBLL.DAL
                         Navn = innVare.kategori,
                         PhotoURL = innVare.photoURL
                     };
-                    nyVare.Kategorier = nyKat;
-                    nyVare.KategoriId = nyKat.ID;
+                   
                     db.Kategorier.Add(nyKat);
-
+                    db.SaveChanges();
+                    nyVare.Kategorier = db.Kategorier.FirstOrDefault(k => k.Navn == innVare.kategori);
+                    nyVare.KategoriId = nyVare.Kategorier.ID;
                 }
                 else
                 {
                     nyVare.Kategorier = kategoriExists;
-                    nyVare.ProdusentId = kategoriExists.ID;
+                    nyVare.KategoriId = kategoriExists.ID;
                 }
                 var produsentExists = db.Produsenter.FirstOrDefault(k => k.Navn == innVare.produsent);
                 if (produsentExists == null)
@@ -250,9 +253,11 @@ namespace WebStoreDALBLL.DAL
                     {
                         Navn = innVare.produsent
                     };
-                    nyVare.Produsenter = nyProd;
-                    nyVare.ProdusentId = nyProd.ID;
+                    
                     db.Produsenter.Add(nyProd);
+                    db.SaveChanges();
+                    nyVare.Produsenter = db.Produsenter.FirstOrDefault(k=> k.Navn == innVare.kategori);
+                    nyVare.ProdusentId = nyVare.Produsenter.ID;
                 }
                 else
                 {
@@ -261,6 +266,8 @@ namespace WebStoreDALBLL.DAL
                 }
 
                 
+               
+             
                 db.Varer.Add(nyVare);
                 db.SaveChanges();
                 return true;

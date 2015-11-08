@@ -24,6 +24,6 @@ D:\Users\simander\Source\Repos\Oblig2-webapp\WebStoreDALBLL\Model\bin\Debug\Enti
 D:\Users\simander\Source\Repos\Oblig2-webapp\WebStoreDALBLL\Model\bin\Debug\EntityFramework.SqlServer.dll
 D:\Users\simander\Source\Repos\Oblig2-webapp\WebStoreDALBLL\Model\bin\Debug\EntityFramework.xml
 D:\Users\simander\Source\Repos\Oblig2-webapp\WebStoreDALBLL\Model\bin\Debug\EntityFramework.SqlServer.xml
-D:\Users\simander\Source\Repos\Oblig2-webapp\WebStoreDALBLL\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
 D:\Users\simander\Source\Repos\Oblig2-webapp\WebStoreDALBLL\Model\obj\Debug\Model.dll
 D:\Users\simander\Source\Repos\Oblig2-webapp\WebStoreDALBLL\Model\obj\Debug\Model.pdb
+D:\Users\simander\Source\Repos\Oblig2-webapp\WebStoreDALBLL\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
